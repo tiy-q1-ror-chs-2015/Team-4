@@ -1,0 +1,13 @@
+=form_for(@program) do |f|
+  - if @program.errors.any?
+    - @program.errors.full_messages.each do |message|
+      = message
+
+= form_for @program do |f|
+  = f.label :name
+  = f.text_field :name
+  %br
+  = f.label :description
+  = f.text_area :description
+  %br
+  =f.submit
