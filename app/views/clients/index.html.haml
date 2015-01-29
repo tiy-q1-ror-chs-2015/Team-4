@@ -1,0 +1,19 @@
+%h1 Client List
+= link_to "Welcome", root_path
+%br
+= link_to "Add Client", new_client_path(@client)
+
+%ul
+  -@clients.each do |client|
+    %li
+      =link_to client.first_name, client_path(client)
+      =link_to client.last_name, client_path(client)
+      =client.date_of_birth
+      =client.goals
+    %li
+      =link_to "Edit", edit_client_path(client)
+      |
+      =link_to "Delete", client_path(client), method: :delete
+      =link_to "Back", root_path
+
+      / updated back link to go back to welcome page
