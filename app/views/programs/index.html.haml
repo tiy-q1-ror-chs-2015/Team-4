@@ -1,0 +1,15 @@
+%p#notice=notice
+= link_to "Add New Workout Program", new_program_path
+%br
+= link_to "Return to Root", root_path
+%br
+%h2
+  Programs Offered:
+- @programs.each do |program|
+  = link_to program.name, program_path(program)
+  %br
+  = link_to "Edit Program", edit_program_path(program)
+  |
+  = link_to "Delete Program", program_path(program), method: :delete
+  %br
+  %br

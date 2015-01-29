@@ -1,0 +1,16 @@
+%h1
+  Program Description:
+%strong
+  Program Name: 
+= @program.name
+%br
+%strong
+  Description:
+= @program.description
+%br
+= link_to "Edit Program", edit_program_path(@program)
+|
+= link_to "Delete Program", program_path(@program), method: :delete
+%br
+%br
+= link_to "Return to Programs", programs_path
