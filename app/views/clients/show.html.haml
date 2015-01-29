@@ -7,9 +7,15 @@
   = @client.first_name + @client.last_name
   %div
   Date of Birth:
+  =@client.date_of_birth.strftime("%m/%d/%Y")
   %div
   Goals:
+  =@client.goals
 
   =link_to "Delete Client", client_path(@client), method: :delete
   |
-  = link_to 'Back', root_path
+  = link_to 'Back', clients_path
+
+  / upated "back" link on show page to go back to clients_path rather than to root_path
+  / updated "back" link on index to go back to welcome page
+  / changed date of birth format on show page to be M/D/Yrs
