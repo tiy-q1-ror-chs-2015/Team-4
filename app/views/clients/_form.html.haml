@@ -1,0 +1,23 @@
+%h1 New Client Form
+/ -@client.inspect
+/ = form_for [@client] do |f|
+/   -if @client.errors.any?
+/     - @client.errors.full_messages.each do |message|
+/       =message
+/       %br
+=form_for @client do |f|
+  =f.label :first_name
+  =f.text_field :first_name
+  %br
+  =f.label :last_name
+  =f.text_field :last_name
+  %br
+  =f.label :date_of_birth
+  =f.date_field :date_of_birth
+  %br
+  =f.label :goals
+  =f.text_area :goals
+  %br
+  =f.submit
+  |
+  = link_to "Cancel", root_path
