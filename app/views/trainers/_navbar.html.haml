@@ -1,14 +1,4 @@
-!!!
-%html
-  %head
-    %title Team4
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-  %body
-    / Static navbar
+/ Static navbar
 %nav.navbar.navbar-default.navbar-static-top
   .container
     .navbar-header
@@ -20,15 +10,15 @@
       %a.navbar-brand{:href => "#"} KickAss Gym Management System
     #navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav
-        %li
+        %li.active
           = link_to "Home", root_path
         %li
-          = link_to "About", welcome_about_path
+          %a{:href => "#about"} About
         %li
           %a{:href => "#contact"} Contact
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Navigate
+            Dropdown
             %span.caret
           %ul.dropdown-menu{:role => "menu"}
             %li
@@ -58,14 +48,13 @@
   %p.alert= alert
 .container
   / Main component for a primary marketing message or call to action
-  / .jumbotron
-  /   %h1 KickAss Gym Management System
-  /   .center-block
-  /     - if current_user
-  /       = "Gym Workout Programs Management Page"
-  /     - else
-  /       = "Welcome to the KickAss Gym Management System.  Please sign in above."
-  /   %p
+  .jumbotron
+    %h1 KickAss Gym Management System
+    - if current_user
+      = "Gym Trainers Management Page"
+    - else
+      = "Welcome to the KickAss Gym Management System.  Please sign in above."
+    %p
 / /container
 /
   Bootstrap core JavaScript
@@ -75,26 +64,3 @@
 %script{:src => "../../dist/js/bootstrap.min.js"}
 / IE10 viewport hack for Surface/desktop Windows 8 bug
 %script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}
-= yield
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
