@@ -5,3 +5,7 @@
 -created user sign up, sign in, sign out links on programs index page to test
 
 
+30 Jan 2015:
+-added static navbar theme for bootstrap
+
+-changed /views/layouts/application.html.erb to .haml
