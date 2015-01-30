@@ -1,4 +1,12 @@
-%h1
-  = link_to "Trainers", trainers_path
-  = link_to "Programs", programs_path
-  = link_to "Clients", clients_path
+.col-md-6.col-md-offset-3
+  .jumbotron
+    .text-center
+      %h4
+        - if current_user
+          = "Welcome to the KickAss Gym Management System"
+          %br
+          = "You are signed in as #{current_user.email}"
+        -else
+          = "Welcome to the KickAss Gym Management System"
+          %br
+          = "Please login"
