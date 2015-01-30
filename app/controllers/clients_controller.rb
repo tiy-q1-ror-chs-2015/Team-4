@@ -1,23 +1,32 @@
 class ClientsController < ApplicationController
   def index
     @clients = Client.all
+    # @program = Program.find params[:program_id]
   end
 
   def show
-    @clients = Client.all
+    # @clients = Client.all
     @client = Client.find params[:id]
+    # @program = Program.find params[:program_id]
+    @programs = @client.programs
   end
 
   def new
     @client = Client.new
+    @programs = Program.all
+    # @program = Program.find params[:program_id]
+
   end
 
   def edit
     @client = Client.find params[:id]
+    @programs = Program.all
   end
 
   def create
-    @client = Client.new(client_params)
+
+    # @program = Program.find params[:id]
+    @client = Client.create client_params
     if @client.save
       flash[:notice] = 'Client was successfully created.'
       redirect_to clients_path
@@ -25,6 +34,7 @@ class ClientsController < ApplicationController
       flash[:error] = 'Client was NOT saved.'
       render :new
     end
+
   end
 
   def update
@@ -47,7 +57,8 @@ class ClientsController < ApplicationController
       :first_name,
       :last_name,
       :date_of_birth,
-      :goals
+      :goals,
+      program_id: []
     )
   end
 

@@ -18,6 +18,14 @@
   =f.label :goals
   =f.text_area :goals
   %br
+  %br
+  Name of Program:
+  %br
+  %br
+  - @programs.each do |program|
+    = check_box_tag 'client[program_ids][]', program.id, @client.programs.include?(program)
+    =program.name
+  %br
   =f.submit
   |
   = link_to "Cancel", root_path

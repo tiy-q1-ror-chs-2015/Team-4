@@ -1,4 +1,8 @@
 class Trainer < ActiveRecord::Base
-  has_many :programs
-  has_many :clients
+  
+
+  has_many :program_trainers
+  has_many :programs, through: :program_trainers
+
+
 end

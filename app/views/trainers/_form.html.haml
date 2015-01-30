@@ -12,7 +12,18 @@
   = t.label :about_me
   = t.text_field :about_me 
   %br
+  Programs Taught:
+  %br
+  %br
+  - @programs.each do |program| 
+    = check_box_tag 'trainer[program_ids][]', program.id, @trainer.programs.include?(program)
+    = program.name
   = t.submit 
   %br
   %br 
+
+
+
+
+
    

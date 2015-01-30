@@ -6,6 +6,9 @@ end
 
 def new
   @trainer = Trainer.new
+  @programs = Program.all
+
+
 end 
 
 def create
@@ -15,6 +18,7 @@ end
 
 def edit
   @trainer = Trainer.find params[:id]
+  @programs = Program.all
 end
 
 def update
@@ -25,6 +29,7 @@ end
 
 def show
   @trainer = Trainer.find params[:id] 
+
 end 
 def destroy
   @trainer = Trainer.find params[:id]
@@ -36,7 +41,8 @@ def trainer_params
   params.require(:trainer).permit(
     :first_name,
     :last_name,
-    :about_me
+    :about_me,
+    program_ids: []
     )
 
 end

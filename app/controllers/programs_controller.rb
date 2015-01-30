@@ -5,6 +5,10 @@ end
 
 def new
   @program = Program.new
+  @clients = Client.all
+  # @client = @program.clients.find params[:client_id]
+  # @program = Program.find params[:program_id]
+  # @client = Client.find params[:client_id]
 end
 
 def create
@@ -20,13 +24,16 @@ end
 
 def show
   @program = Program.find params[:id]
+  @clients = @program.clients
 end
 
 def edit
   @program = Program.find params[:id]
+  @clients = Client.all
 end
 
 def update
+  @clients = Client.all 
   @program = Program.find params[:id]
   if @program.update program_params
     flash[:notice] = 'Program information successfully updated.'
@@ -50,7 +57,8 @@ private
 def program_params
   params.require(:program).permit(
     :name,
-    :description
+    :description,
+    client_id: []
     )
 end
 
