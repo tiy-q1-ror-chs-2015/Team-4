@@ -9,3 +9,7 @@
 -added static navbar theme for bootstrap
 
 -changed /views/layouts/application.html.erb to .haml
+
+-added login/logout/register to navbar.
+
+-removed active_link highlighting on navbar.  can't figure out how to move between contoller pages (welcome and about are in welcome controller).
