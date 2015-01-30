@@ -10,4 +10,10 @@
   = f.label :description
   = f.text_area :description
   %br
+  - @clients.each do |client|
+    = check_box_tag 'program[client_ids][]', client.id, @program.clients.include?(client)
+    = client.first_name + client.last_name 
+    %br
   =f.submit
+
+
