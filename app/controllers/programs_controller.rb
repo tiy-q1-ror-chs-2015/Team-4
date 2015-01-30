@@ -29,10 +29,10 @@ end
 def update
   @program = Program.find params[:id]
   if @program.update program_params
-    flash[:notice] = 'Program information successfully saved.'
+    flash[:notice] = 'Program information successfully updated.'
     redirect_to program_path(@program)
   else
-    flash[:error] = 'Program NOT successfully saved.'
+    flash[:error] = 'Program NOT successfully updated.'
     render :new
   end
 end
