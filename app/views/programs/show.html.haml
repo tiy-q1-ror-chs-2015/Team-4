@@ -1,17 +1,38 @@
-%p#notice=notice
-%h1
-  Program Description:
-%strong
-  Program Name: 
-= @program.name
-%br
-%strong
-  Description:
-= @program.description
-%br
-= link_to "Edit Program", edit_program_path(@program)
-|
-= link_to "Delete Program", program_path(@program), method: :delete
-%br
-%br
-= link_to "Return to Programs", programs_path
+.col-md-6.col-md-offset-3  
+  .jumbotron-programs
+    .text-center
+      %h2
+        Program Description
+      = link_to "Back to Programs", programs_path
+      |
+      = link_to "Edit", edit_program_path(@program)
+      |
+      = link_to "Delete", program_path(@program), method: :delete
+.row
+  .col-md-6.col-md-offset-3
+    .text-center
+      %strong
+        Program Name: 
+      = @program.name
+      %br
+      %strong
+        Description:
+      = @program.description
+      %br
+      %br
+      %strong
+        Trainers Who Teach:
+        %br
+      - @trainers.each do |trainer|
+        = trainer.first_name + ' ' + trainer.last_name
+        %br
+      %br
+      %br
+      %strong
+        Clients Taking Program:
+        %br
+      - @clients.each do |client|
+        = client.first_name + ' ' + client.last_name
+        %br
+      %br
+      
