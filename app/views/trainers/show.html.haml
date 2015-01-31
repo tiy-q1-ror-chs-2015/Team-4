@@ -23,9 +23,21 @@ About Me:
 %br
 I teach the following programs:
 -@programs.each do |program|
-  = program.name 
-
-
-
+  = program.name
 %br
+%br
+%strong
+  Internal comments concerning trainer:
+  %br
+-@trainer.comments.each do |comment|
+  = comment.content
+  = link_to "Delete Comment", destroy_comment_trainer_path(comment), method: :delete
+  %br
+%br
+= form_for @comment, url: create_comment_trainer_path(@trainer) do |f|
+  = f.label :content
+  = f.text_area :content
+  %br
+  = f.submit
+
 

@@ -16,6 +16,12 @@ def create
   redirect_to trainers_path
 end 
 
+def create_comment
+  @trainer = Trainer.find params[:id]
+  @comment = @trainer.comments.create comment_params
+  redirect_to trainer_path(@trainer)
+end
+
 def edit
   @trainer = Trainer.find params[:id]
   @programs = Program.all
@@ -29,14 +35,21 @@ end
 
 def show
   @trainer = Trainer.find params[:id]
-  @programs = @trainer.programs   
-
+  @programs = @trainer.programs
+  @comment = Comment.new
 end 
 def destroy
   @trainer = Trainer.find params[:id]
   @trainer.delete
   redirect_to trainers_path
 end
+
+def destroy_comment
+  @comment = Comment.find params[:id]
+  @comment.destroy
+  redirect_to @comment.commentable
+end
+
 private
 def trainer_params
   params.require(:trainer).permit(
@@ -47,4 +60,11 @@ def trainer_params
     )
 
 end
+
+def comment_params
+  params.require(:comment).permit(
+    :content
+    )
+end
+
 end
