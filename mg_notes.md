@@ -1,3 +1,15 @@
+31 Jan 2015:
+
+-updated layout for all program views
+
+-added option to select clients from form page
+
+-cleaned up javascript error in assets on CMD
+
+
+
+
+
 -installed devise gem - user login for employees
 
 -installed quiet_assets gem - stop rendering assets in CMD

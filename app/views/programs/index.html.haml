@@ -1,23 +1,16 @@
-%p#notice=notice
-= link_to "Add New Workout Program", new_program_path
-%br
-= link_to "Return to Root", root_path
-%br
-%h2
-  Programs Offered:
+.col-md-6.col-md-offset-3  
+  .jumbotron-programs
+    .text-center
+      %h2
+        Programs Offered
+        %br
+      = link_to "Add a Program", new_program_path
 - @programs.each do |program|
-  = link_to program.name, program_path(program)
-  %br
-  = link_to "Edit Program", edit_program_path(program)
-  |
-  = link_to "Delete Program", program_path(program), method: :delete
-  %br
-  %br
-Sign up:
-- if current_user
-  = link_to "Sign Out: #{current_user.email}", destroy_user_session_path, method: :delete
--else
-  = link_to "Sign Up", new_user_registration_path
-  |
-  = link_to "Sign In", new_user_session_path
-
+  .col-md-3.col-md-offset-1
+    = link_to program.name, program_path(program)
+    %br
+    = link_to "Edit Program", edit_program_path(program)
+    |
+    = link_to "Delete Program", program_path(program), method: :delete
+    %br
+    %br

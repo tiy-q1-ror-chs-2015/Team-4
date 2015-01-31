@@ -6,6 +6,7 @@ end
 def new
   @program = Program.new
   @clients = Client.all
+  @trainers = Trainer.all
   # @client = @program.clients.find params[:client_id]
   # @program = Program.find params[:program_id]
   # @client = Client.find params[:client_id]
@@ -25,11 +26,13 @@ end
 def show
   @program = Program.find params[:id]
   @clients = @program.clients
+  @trainers = @program.trainers
 end
 
 def edit
   @program = Program.find params[:id]
   @clients = Client.all
+  @trainers = Trainer.all
 end
 
 def update
@@ -58,7 +61,8 @@ def program_params
   params.require(:program).permit(
     :name,
     :description,
-    client_id: []
+    client_ids: [],
+    trainer_ids: []
     )
 end
 

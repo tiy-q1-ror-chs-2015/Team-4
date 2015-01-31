@@ -2,18 +2,38 @@
   - if @program.errors.any?
     - @program.errors.full_messages.each do |message|
       = message
-
 = form_for @program do |f|
-  = f.label :name
-  = f.text_field :name
+  .form-group
+    = f.label :name
+    = ':'
+    = f.text_field :name, class: "form-control"
   %br
-  = f.label :description
-  = f.text_area :description
+  .form-group
+    = f.label :description
+    = ':'
+    = f.text_area :description, class: "form-control"
   %br
-  - @clients.each do |client|
-    = check_box_tag 'program[client_ids][]', client.id, @program.clients.include?(client)
-    = client.first_name + client.last_name 
+  %strong
+    Add Clients to Program:
     %br
-  =f.submit
+  .checkbox
+    - @clients.each do |client|
+      %label
+        = check_box_tag 'program[client_ids][]', client.id, @program.clients.include?(client)
+        = client.first_name + ' ' + client.last_name
+    %br
+  %br
+  %strong
+    Add Trainers Who Offer Program:
+    %br
+  .checkbox
+    - @trainers.each do |trainer|
+      %label
+        = check_box_tag 'program[trainer_ids][]', trainer.id, @program.trainers.include?(trainer)
+        = trainer.first_name + ' ' + trainer.last_name
+    %br
+  %br
+  .col-md-1.col-md-offset-4
+  =f.submit "Submit", class: "btn btn-primary"
 
 

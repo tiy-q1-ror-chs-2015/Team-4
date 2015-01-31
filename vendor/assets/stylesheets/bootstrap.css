@@ -6564,3 +6564,42 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+.jumbotron-programs {
+  padding: 30px 15px;
+  margin-bottom: 30px;
+  color: navy;
+  background-color: #eee;
+}
+.jumbotron-programs h1,
+.jumbotron .h1 {
+  color: navy;
+}
+.jumbotron-programs p {
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 200;
+}
+.jumbotron-programs > hr {
+  border-top-color: #d5d5d5;
+}
+.container .jumbotron-programs,
+.container-fluid .jumbotron-programs {
+  border-radius: 6px;
+}
+.jumbotron-programs .container {
+  max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .jumbotron-programs {
+    padding: 48px 0;
+  }
+  .container .jumbotron-programs,
+  .container-fluid .jumbotron-programs {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .jumbotron-programs h1,
+  .jumbotron-programs .h1 {
+    font-size: 63px;
+  }
+}
