@@ -6,6 +6,12 @@
 
 -cleaned up javascript error in assets on CMD
 
+-add comments section using polymorphic relationship for all 3 areas
+
+-added email link to "Contact" on Navbar - opens in new tab with subject line: "Employee Input"
+
+-added user authentication required to enter any pages on programs controller
+
 
 
 

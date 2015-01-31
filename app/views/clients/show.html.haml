@@ -35,4 +35,25 @@
     - @trainers.each do |trainer|
       =link_to trainer.first_name, trainer_path(trainer)
       =link_to trainer.last_name, trainer_path(trainer)
+%br
+.row
+  .col-md-12
+    %br
+    %br
+    .col-md-4.col-md-offset-5
+      Internal Comments Concerning Client:
+      %br
+      - @client.comments.each do |comment|
+        = comment.content
+        = link_to "Delete Comment", destroy_comment_client_path(comment), method: :delete
+        %br
+      %br
+      %br
+      Add a New Comment:
+      = form_for @comment, url: create_comment_client_path(@client) do |f|
+        = f.label :content
+        = f.text_area :content
+        %br
+        = f.submit
+
   

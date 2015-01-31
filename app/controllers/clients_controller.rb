@@ -13,6 +13,7 @@ class ClientsController < ApplicationController
     @programs = @client.programs
     @programs = Program.all
     @trainers = Trainer.all
+    @comment = Comment.new
   end
 
   def new
@@ -27,7 +28,6 @@ class ClientsController < ApplicationController
   end
 
   def create
-
     @client = Client.create client_params
     if @client.save
       flash[:notice] = 'Client was successfully created.'
@@ -36,8 +36,14 @@ class ClientsController < ApplicationController
       flash[:error] = 'Client was NOT saved.'
       render :new
     end
-
   end
+
+  def create_comment
+    @client = Client.find params[:id]
+    @comment = @client.comments.create comment_params
+    redirect_to client_path(@client)
+  end
+
 
   def update
     @client = Client.find params[:id] 
@@ -54,6 +60,12 @@ class ClientsController < ApplicationController
     redirect_to clients_path
   end
 
+  def destroy_comment
+    @comment = Comment.find params[:id]
+    @comment.destroy
+    redirect_to @comment.commentable
+  end
+
   def client_params
     params.require(:client).permit(
       :first_name,
@@ -64,4 +76,10 @@ class ClientsController < ApplicationController
     )
   end
 
+  def comment_params
+    params.require(:comment).permit(
+      :content
+      )
+
+  end
 end

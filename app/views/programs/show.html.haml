@@ -35,4 +35,20 @@
         = client.first_name + ' ' + client.last_name
         %br
       %br
+      %br
+      %strong
+        Internal Program Comments:
+      %br
+      - @program.comments.each do |comment|
+        = comment.content
+        |
+        =link_to "Delete Comment", destroy_comment_program_path(comment), method: :delete
+        %br
+      %br
+      = form_for @comment, url: create_comment_program_path(@program) do |f|
+        = f.label :content
+        = f.text_area :content
+        %br
+        = f.submit
+
       
