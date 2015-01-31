@@ -1,19 +1,47 @@
-%h1 Client List
-= link_to "Welcome", root_path
-%br
-= link_to "Add Client", new_client_path(@client)
-
-%ul
+.div1
+.col-md-4
+  = link_to "Welcome", root_path
+  |
+  = link_to "Add Client", new_client_path(@client)
+  |
+  =link_to "Back", root_path
+  .row1
+    %center
+      %h1 Client List
   -@clients.each do |client|
-    %li
-      =link_to client.first_name, client_path(client)
-      =link_to client.last_name, client_path(client)
-      =client.date_of_birth
+    %center
+      %strong
+        =link_to client.first_name, client_path(client)
+        =link_to client.last_name, client_path(client)
+    %center
+      %strong 
+      =client.date_of_birth.strftime("%m/%d/%Y")
+    %br
+      %strong Goals:
       =client.goals
-    %li
+        
+      %br
+      %p
       =link_to "Edit", edit_client_path(client)
       |
       =link_to "Delete", client_path(client), method: :delete
-      =link_to "Back", root_path
+      %p
 
-      / updated back link to go back to welcome page
+.col-md-4
+  %br
+  %center 
+    %h1 Programs Offered:
+    - @programs.each do |program|
+      = link_to program.name, program_path(program)
+  
+
+.col-md-4
+  %br
+  %center 
+    %h1 Trainers
+    - @trainers.each do |trainer|
+      =link_to trainer.first_name, trainer_path(trainer)
+      =link_to trainer.last_name, trainer_path(trainer)
+  
+
+  

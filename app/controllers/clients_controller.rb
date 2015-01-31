@@ -1,20 +1,23 @@
 class ClientsController < ApplicationController
   def index
     @clients = Client.all
-    # @program = Program.find params[:program_id]
+    @programs = Program.all
+    @trainers = Trainer.all
   end
+# def index
+#   @programs = Program.all
+# end
 
   def show
-    # @clients = Client.all
     @client = Client.find params[:id]
-    # @program = Program.find params[:program_id]
     @programs = @client.programs
+    @programs = Program.all
+    @trainers = Trainer.all
   end
 
   def new
     @client = Client.new
     @programs = Program.all
-    # @program = Program.find params[:program_id]
 
   end
 
@@ -25,7 +28,6 @@ class ClientsController < ApplicationController
 
   def create
 
-    # @program = Program.find params[:id]
     @client = Client.create client_params
     if @client.save
       flash[:notice] = 'Client was successfully created.'
