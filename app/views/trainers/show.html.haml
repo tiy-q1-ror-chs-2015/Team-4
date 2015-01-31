@@ -9,7 +9,7 @@
 =link_to "Delete", trainer_path, method: :delete
 %br
 %br
-TRAINERS
+TRAINER
 %br
 %br
 First Name: 
@@ -20,4 +20,12 @@ Last Name:
 %br
 About Me:
 = @trainer.about_me
-  
+%br
+I teach the following programs:
+-@programs.each do |program|
+  = program.name 
+
+
+
+%br
+
