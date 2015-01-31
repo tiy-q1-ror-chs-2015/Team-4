@@ -28,7 +28,8 @@ def update
 end 
 
 def show
-  @trainer = Trainer.find params[:id] 
+  @trainer = Trainer.find params[:id]
+  @programs = @trainer.programs   
 
 end 
 def destroy
