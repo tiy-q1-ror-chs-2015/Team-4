@@ -16,8 +16,10 @@ class ProgramsController < ApplicationController
 
   def create
     @program = Program.create program_params
+    @clients = Client.all
+    @trainers = Trainer.all
     if @program.save
-      flash[:notice] = 'Program information successsfully saved.'
+      flash[:notice] = "#{@program.name} information successsfully saved."
       redirect_to programs_path
     else
       flash[:error] = 'Program NOT successfully saved.'
@@ -47,9 +49,10 @@ class ProgramsController < ApplicationController
 
   def update
     @clients = Client.all 
+    @trainers = Trainer.all
     @program = Program.find params[:id]
     if @program.update program_params
-      flash[:notice] = 'Program information successfully updated.'
+      flash[:notice] = "#{@program.name} information successfully updated."
       redirect_to program_path(@program)
     else
       flash[:error] = 'Program NOT successfully updated.'
@@ -60,7 +63,7 @@ class ProgramsController < ApplicationController
   def destroy
     @program = Program.find params[:id]
     @program.delete
-    flash[:notice] = 'Program successfully deleted.'
+    flash[:notice] = "#{@program.name} successfully deleted."
     redirect_to programs_path
   end
 
