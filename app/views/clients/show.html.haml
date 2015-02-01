@@ -1,11 +1,10 @@
 
 %h2
 = link_to "Welcome", root_path
+.col-md-12
+  %img{ :src => "/assets/workout.jpg" }
 
-%div
-
-
-.col-md-4
+.col-md-4  
   %stong
   %h3
     = @client.first_name + @client.last_name
@@ -21,21 +20,28 @@
   =link_to "Delete Client", client_path(@client), method: :delete
   |
   = link_to 'Back', clients_path
+
+%div 
+
 .col-md-4
   %br
   %center 
     %h3 Programs Offered:
     - @programs.each do |program|
-      = link_to program.name, program_path(program)
+      %center
+        %strong
+          = link_to program.name, program_path(program)
 
 .col-md-4
   %br
   %center  
     %h3 Trainers
     - @trainers.each do |trainer|
-      =link_to trainer.first_name, trainer_path(trainer)
-      =link_to trainer.last_name, trainer_path(trainer)
-%br
+      %center
+        %strong
+          =link_to trainer.first_name, trainer_path(trainer)
+          =link_to trainer.last_name, trainer_path(trainer)
+
 .row
   .col-md-12
     %br
@@ -55,5 +61,6 @@
         = f.text_area :content
         %br
         = f.submit
+
 
   

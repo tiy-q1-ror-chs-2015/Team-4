@@ -1,13 +1,15 @@
-.div1
+.div
 .col-md-4
   = link_to "Welcome", root_path
   |
   = link_to "Add Client", new_client_path(@client)
   |
   =link_to "Back", root_path
-  .row1
+ 
+  .row 
     %center
       %h1 Client List
+
   -@clients.each do |client|
     %center
       %strong
@@ -19,29 +21,27 @@
     %br
       %strong Goals:
       =client.goals
-        
       %br
-      %p
       =link_to "Edit", edit_client_path(client)
       |
       =link_to "Delete", client_path(client), method: :delete
-      %p
-
 .col-md-4
   %br
   %center 
     %h1 Programs Offered:
     - @programs.each do |program|
-      = link_to program.name, program_path(program)
-  
-
+      %center
+        %strong
+        = link_to program.name, program_path(program)
 .col-md-4
   %br
   %center 
-    %h1 Trainers
+    %h1 Trainers:
     - @trainers.each do |trainer|
-      =link_to trainer.first_name, trainer_path(trainer)
-      =link_to trainer.last_name, trainer_path(trainer)
+      %center
+        %strong
+        =link_to trainer.first_name, trainer_path(trainer)
+        =link_to trainer.last_name, trainer_path(trainer)
   
 
   
