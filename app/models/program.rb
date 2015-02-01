@@ -5,4 +5,5 @@ class Program < ActiveRecord::Base
   has_many :program_trainers
   has_many :trainers, through: :program_trainers
   has_many :comments, as: :commentable
+  belongs_to :user
 end

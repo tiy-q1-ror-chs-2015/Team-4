@@ -8,6 +8,9 @@
       = link_to "Edit", edit_program_path(@program)
       |
       = link_to "Delete", program_path(@program), method: :delete
+      %br
+      Last updated by:
+      = @program.user.email
 .row
   .col-md-6.col-md-offset-3
     .list-group-item

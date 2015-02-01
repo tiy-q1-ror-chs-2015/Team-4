@@ -1,3 +1,12 @@
+1 Feb 2015:
+
+-added user_id to programs table
+
+-added "last updated by" to programs show page and edited the program create and update controllers.  must have data in the "user_id" field in programs table or will not work.  I can't get rake tasks to automatically populate.
+
+-would like to add last updated to the comments section but will work on that later.
+
+
 31 Jan 2015:
 
 -updated layout for all program views
