@@ -6569,6 +6569,7 @@ button.close {
   margin-bottom: 30px;
   color: navy;
   background-color: #eee;
+  border-radius: 8px;
 }
 .jumbotron-programs h1,
 .jumbotron .h1 {

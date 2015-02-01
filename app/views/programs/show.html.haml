@@ -2,53 +2,61 @@
   .jumbotron-programs
     .text-center
       %h2
-        Program Description
+        Program Information
       = link_to "Back to Programs", programs_path
-      |
+      %br
       = link_to "Edit", edit_program_path(@program)
       |
       = link_to "Delete", program_path(@program), method: :delete
 .row
   .col-md-6.col-md-offset-3
-    .text-center
-      %strong
-        Program Name: 
-      = @program.name
-      %br
-      %strong
-        Description:
-      = @program.description
-      %br
-      %br
-      %strong
-        Trainers Who Teach:
+    .list-group-item
+      .text-center
+        %strong
+          Program Name: 
+        = @program.name
         %br
-      - @trainers.each do |trainer|
-        = trainer.first_name + ' ' + trainer.last_name
+        %strong
+          Description:
+        = @program.description
         %br
-      %br
-      %br
+    %br
+    .list-group-item
+      .text-center
+        %strong
+          Trainers Who Teach:
+          %br
+        - @trainers.each do |trainer|
+          = trainer.first_name + ' ' + trainer.last_name
+          %br
+    %br
+    .list-group-item
+      .text-center
+        %strong
+          Clients Taking Program:
+          %br
+        - @clients.each do |client|
+          = client.first_name + ' ' + client.last_name
+          %br
+    %br
+    .list-group-item
       %strong
-        Clients Taking Program:
-        %br
-      - @clients.each do |client|
-        = client.first_name + ' ' + client.last_name
-        %br
-      %br
-      %br
-      %strong
-        Internal Program Comments:
-      %br
-      - @program.comments.each do |comment|
-        = comment.content
-        |
-        =link_to "Delete Comment", destroy_comment_program_path(comment), method: :delete
-        %br
+        .text-center
+          Internal Program Comments:
+      %ul
+        - @program.comments.each do |comment|
+          %li
+            = comment.content
+            |
+            =link_to "Delete Comment", destroy_comment_program_path(comment), method: :delete
       %br
       = form_for @comment, url: create_comment_program_path(@program) do |f|
-        = f.label :content
-        = f.text_area :content
-        %br
-        = f.submit
+        .form-group
+          .text-center
+            = f.label :content, "Add Comment:"
+          = f.text_area :content, class: "form-control"
+          %br
+          .text-center
+            = f.submit "Submit Comment", class: "btn btn-primary"
 
       
