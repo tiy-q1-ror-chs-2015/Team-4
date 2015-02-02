@@ -18,6 +18,7 @@ class ProgramsController < ApplicationController
     @program = Program.create program_params
     @clients = Client.all
     @trainers = Trainer.all
+    @program.user = current_user
     if @program.save
       flash[:notice] = "#{@program.name} information successsfully saved."
       redirect_to programs_path
@@ -51,6 +52,7 @@ class ProgramsController < ApplicationController
     @clients = Client.all 
     @trainers = Trainer.all
     @program = Program.find params[:id]
+    @program.user = current_user
     if @program.update program_params
       flash[:notice] = "#{@program.name} information successfully updated."
       redirect_to program_path(@program)
