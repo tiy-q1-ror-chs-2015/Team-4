@@ -1,38 +1,25 @@
-="Trainers"
+%h1
+  ="Trainers"
 %br
-%br
-=link_to "Home", root_path
-%br
+
+/ %h6
+/   =link_to "Home", root_path
 %br
 %br
 / =link_to :back
 %br
-=link_to "Add New Trainer", new_trainer_path
+%h4
+  =link_to "Add New Trainer", new_trainer_path
 
 %br
-%br
-
 
 - @trainers.each do |trainer|
-  =link_to trainer.first_name, trainer_path(trainer)
-  =link_to trainer.last_name, trainer_path(trainer)
+  .col-xs-4
+    %h5
+      =link_to trainer.first_name, trainer_path(trainer)
+      =link_to trainer.last_name, trainer_path(trainer)
   
-  %br
-  %br
-  / First Name:
-  / = trainer.first_name
-  / %br
-  / Last Name:
-  / = trainer.last_name
-  / %br
-  / %br
-
-  / About Me:
-  / =trainer.about_me
-  / %br
-  / =link_to "Edit", edit_trainer_path(trainer)
-  / %br
-  / =link_to "Delete", trainer_path(trainer), method: :delete
+  
 
 
   

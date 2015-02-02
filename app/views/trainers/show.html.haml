@@ -1,6 +1,4 @@
-=link_to "Home", root_path
-%br
-%br
+/ =link_to "Home", root_path
 
 =link_to "Back", trainers_path
 %br 
@@ -9,16 +7,20 @@
 =link_to "Delete", trainer_path, method: :delete
 %br
 %br
-TRAINER
+%h2
+  TRAINER
 %br
 %br
-First Name: 
+%h5
+  First Name: 
 = @trainer.first_name
 %br
-Last Name:
+%h5
+  Last Name:
 = @trainer.last_name
 %br
-About Me:
+%h5
+  About Me:
 = @trainer.about_me
 %br
 I teach the following programs:
