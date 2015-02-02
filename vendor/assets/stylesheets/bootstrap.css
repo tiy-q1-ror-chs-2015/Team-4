@@ -6603,4 +6603,10 @@ button.close {
   .jumbotron-programs .h1 {
     font-size: 63px;
   }
+  .jumbotron-clients {
+  padding: 5px 5px;
+  margin-bottom: 30px;
+  background-color: #eee;
+  border-radius: 8px;
+}
 }
